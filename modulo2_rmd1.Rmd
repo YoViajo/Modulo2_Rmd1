@@ -3,9 +3,9 @@ title: "Módulo 2 - R Markdown documento 1"
 author: "Eric Armijo"
 date: "2022-10-06"
 output:
-  html_document: default
-  pdf_document: default
   word_document: default
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -65,3 +65,32 @@ knitr::kable(head(cars),
 ## Insertar una Ecuación
 
 $$ Y = \beta_0 + \beta_1x $$
+
+## Insertar una Imagen
+
+Aquí está una imagen insertada
+
+![](sunstar/sunstar.png)
+
+
+Aquí está del logo de R
+
+![logo R](https://www.r-project.org/logo/Rlogo.svg)
+
+## Insertar un GIF animado y video
+
+![sunstar](sunstar/sunstar.gif)
+
+![sunstar](sunstar/sunstar.mp4)
+
+
+## Insertar texto con notas de pie
+
+Esta es una referencia a una nota de pie [^1] y otra [^longnote]
+
+Aquí tenemos una nota de pie en la línea ^[Las notas en línea son más fácil de escribir, ya que no tiene que escoger un identificador y moverse abajo para escribir la nota.]
+
+[^1]: Aquí está la nota de pie.
+[^longnote]: Aquí tiene múltiples bloques.
+
+
