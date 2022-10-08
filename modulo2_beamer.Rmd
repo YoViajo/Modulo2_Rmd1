@@ -1,0 +1,63 @@
+---
+title: "módulo 2 - ioslides - agregar más texto"
+author: "Eric Armijo"
+date: "2022-10-06"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+## Diapositiva con una Imagen {.flexbox .vcenter}
+
+Aquí está una imagen insertada
+
+![](Modulo2_Rmd1/sunstar/sunstar.png)
+
+## Diapositiva con una Tabla
+
+```{r}
+knitr::kable(head(cars),
+             caption = "6 filas de arriba del conjunto de datos Cars")
+```
+
+## Diapositiva con una Ecuación
+
+Una ecuación simple de regresión lineal
+
+$$ Y = \beta_0 + \beta_1x $$
+
+## Diapositiva con 2 columnas {.columns-2}
+
+![](Modulo2_Rmd1/sunstar/sunstar.png)
+
+- viñeta 1
+- viñeta 2
+- viñeta 3

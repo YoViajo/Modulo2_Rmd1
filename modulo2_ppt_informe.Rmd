@@ -1,0 +1,64 @@
+---
+title: "Informe epidemiológico"
+author: "Eric Armijo"
+date: "2022-10-08"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(plotly)
+library(hrbrthemes)
+hrbrthemes::import_roboto_condensed()
+
+# Datos de casos confirmados para municipios del dpto. de Santa Cruz
+# Importar los datos y revisar las primeras filas
+sc_munic <- read.csv(file = '/home/yoviajo/Documentos/git-github/covid19-bo-casos_por_municipio/santa_cruz.csv')
+# Filtrar datos del municipio de Santa Cruz de la Sierra
+scz <- sc_munic %>% filter(cod_ine == 70101)
+scz$fecha <- as.Date(scz$fecha)
+```
+
+
+## Casos confirmados
+
+```{r}
+# Gráfico básico ggplot2
+p <- ggplot(scz, aes(x=fecha, y=confirmados)) +
+  geom_line() + 
+  xlab("")
+p
+```
+
+## Casos confirmados, con anotaciones
+
+```{r}
+# Anotaciones para gráfico de línea
+# gráfico
+scz %>% 
+  ggplot( aes(x=fecha, y=confirmados)) +
+  geom_line(color="#69b3a2") +
+  ylim(0,5600) +
+  annotate(geom="text", x=as.Date("2022-01-04"), y=5488, 
+           label="El pico de casos\nocurrió el 4 ene 2022") +
+  annotate(geom="point", x=as.Date("2022-01-04"), y=5488, size=10, shape=21, fill="transparent") +
+  geom_hline(yintercept=2000, color="orange", size=.5) +
+  theme_ipsum()
+
+```
+
+
+## Cierre {.flexbox .vcenter}
+
+![](https://i.imgur.com/KO4PqD6.jpg){width=250px}
+
+```{r, out.width = "100px"}
+#knitr::include_graphics("https://i.imgur.com/KO4PqD6.jpg")
+```
+
